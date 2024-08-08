@@ -1,3 +1,135 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+:root {
+  --primary: #75fbbc;
+  --primary-600: #91ffcb;
+  --content: #fff;
+  --stroke: #1e3a3e;
+  --secondary: #00e000;
+  --accent: #75fbbc;
+  --neutral: #00201e;
+  --base-100: #f67bb6;
+  --info: #67e8f9;
+  --success: #4ade80;
+  --warning: #ffa022;
+  --error: #ef4444;
+}
+
+.victormono {
+  font-family: "Victor Mono", monospace;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  @apply victormono;
+  font-weight: 700;
+}
+
+@font-face {
+  font-family: "Lazenby Computer";
+  src:
+    local("Lazenby Computer Smooth"),
+    local("LazenbyComputer-Smooth"),
+    url("./src/LazenbyComputer-Smooth.woff2") format("woff2"),
+    url("./src/LazenbyComputer-Smooth.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+body {
+  @apply text-white;
+  @apply victormono;
+}
+
+footer a.link {
+  color: var(--primary);
+}
+
+footer a.link:hover {
+  color: var(--primary-800);
+}
+
+button {
+  @apply text-black victormono font-bold py-2 px-6 mx-2 rounded-xl;
+  border: 1px solid var(--stroke);
+  box-shadow: -3px 4px 0 0 var(--stroke);
+  color: var(--stroke);
+  text-transform: uppercase;
+}
+
+.computerfont {
+  font-family: "Lazenby Computer", sans-serif;
+}
+
+.menu-item > a {
+  @apply text-2xl computerfont px-4 py-2 text-kaiju-primary;
+  letter-spacing: 0.07rem;
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: var(--stroke);
+  text-shadow: -2.3px 1.7px 0 var(--stroke);
+}
+
+.menu-item > a::before {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  color: var(--stroke);
+  z-index: -1;
+  text-shadow:
+    1px 0 0 var(--stroke),
+    0 1px 0 var(--stroke),
+    -1px 0 0 var(--stroke),
+    0 -1px 0 var(--stroke);
+}
+.menu-item::hover {
+  text-decoration: underline;
+}
+
+.hero-secondary {
+  @apply btn-outline;
+  background-color: var(--base-100);
+  border: 1px solid var(--stroke);
+  box-shadow: -3px 4px 0 0 var(--stroke);
+  text-transform: uppercase;
+}
+
+.hero-secondary:hover {
+  background-color: var(--stroke);
+  color: var(--primary);
+  border: 1px solid var(--primary);
+  box-shadow: -3px 4px 0 0 var(--primary);
+}
+
+button.primary {
+  @apply bg-primary;
+}
+button.primary:hover {
+  @apply bg-[--primary-600];
+}
+
+.gridbg {
+  @apply fixed top-0 left-0 w-screen h-screen bg-cover bg-center bg-repeat-y z-[-2] opacity-[2%] bg-base-100;
+  background-image: url("./src/grid.svg");
+}
+.dustbg {
+  background-image: url("./src/dust.svg");
+}
+.hero {
+  max-height: 66vh;
+  min-height: 66vh;
+}
+
+.container {
+  max-width: 1160px;
+}
+footer nav {
+  @apply sm:py-4;
+}

@@ -8,56 +8,37 @@
  */
 
 ?>
+    <div id="post-<?php the_ID();?>" class="my-4 rounded overflow-hidden flex flex-col mx-auto">
+        <a href="<?php the_permalink();?>"
+            class="text-xl sm:text-4xl font-semibold inline-block transition duration-500 ease-in-out inline-block mb-2 hover:text-primary">
+              <?php the_title();?></a>
 
-<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-	<header class="entry-header">
-		<?php
-		if ( is_singular() ) :
-			the_title( '<h1 class="entry-title">', '</h1>' );
-		else :
-			the_title( '<h2 class="entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h2>' );
-		endif;
+        <div class="relative">
+            <a href="<?php the_permalink();?>">
+                <img class="w-full aspect-[21/9] object-cover"
+                    src="<?php echo get_the_post_thumbnail_url(); ?>"
+                    alt="<?php the_title_attribute(); ?>" class="w-full">
+            </a>
 
-		if ( 'post' === get_post_type() ) :
-			?>
-			<div class="entry-meta">
-				<?php
-				join_the_club_posted_on();
-				join_the_club_posted_by();
-				?>
-			</div><!-- .entry-meta -->
-		<?php endif; ?>
-	</header><!-- .entry-header -->
+            <a href="<?php the_permalink();?>"
+                class="bg-primary text-[--stroke] absolute z-10 text-xs absolute bottom-0 right-0 px-6 m-2 py-2 hover:bg-primary-600 transition duration-500 ease-in-out sm:flex items-center"><span
+                    class="text-lg">></span>&nbsp;&nbsp;<span>Læs mere</span></a>
 
-	<?php join_the_club_post_thumbnail(); ?>
-
-	<div class="entry-content">
-		<?php
-		the_content(
-			sprintf(
-				wp_kses(
-					/* translators: %s: Name of current post. Only visible to screen readers */
-					__( 'Continue reading<span class="screen-reader-text"> "%s"</span>', 'join-the-club' ),
-					array(
-						'span' => array(
-							'class' => array(),
-						),
-					)
-				),
-				wp_kses_post( get_the_title() )
-			)
-		);
-
-		wp_link_pages(
-			array(
-				'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'join-the-club' ),
-				'after'  => '</div>',
-			)
-		);
-		?>
-	</div><!-- .entry-content -->
-
-	<footer class="entry-footer">
-		<?php join_the_club_entry_footer(); ?>
-	</footer><!-- .entry-footer -->
-</article><!-- #post-<?php the_ID(); ?> -->
+        </div>
+        <p class="py-5 text-base leading-8">
+            <?php the_excerpt(); ?>
+        </p>
+        <div class="py-5 text-sm font-regular text-gray-900 flex">
+            <span class="mr-3 flex flex-row items-center text-white">
+                Tags:<span class="ml-1 text-primary"><?php echo "#", the_category(", #");?></span></span>
+            <a href="#" class="flex flex-row items-center">
+                <svg class="text-primary" fill="currentColor" height="16px" aria-hidden="true" role="img"
+                    focusable="false" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path fill="currentColor"
+                        d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z">
+                    </path>
+                    <path d="M0 0h24v24H0z" fill="none"></path>
+                </svg>
+                <span class="ml-1 text-white"><?php the_author(); ?></span></a>
+        </div>
+        <hr class=" mb-6">

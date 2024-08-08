@@ -1,25 +1,38 @@
-/** @type {import('tailwindcss').Config} */
 /* eslint-disable */
+/** @type {import('tailwindcss').Config} */
+import daisyui from "daisyui";
 
 module.exports = {
-  content: ["./**/*.php", "./src/*.css"],
+  content: ["./**/*.php", "./src/**/*.css"],
   theme: {
     extend: {
+      aspectRatio: {
+        "16/9": "16 / 9",
+        "21/9": "21 / 9",
+      },
       colors: {
-        primary: {
-          50: "#f1fff8",
-          100: "#e3fef2",
-          200: "#c8fde4",
-          300: "#acfdd7",
-          400: "#91fcc9",
-          500: "#75fbbc",
-          600: "#5ec996",
-          700: "#469771",
-          800: "#2f644b",
-          900: "#173226",
-        },
+        "kaiju-primary": "#75fbbc",
+        "kaiju-stroke": "#1e3a3e",
+        "kaiju-hover": "#6CD8A5",
       },
     },
   },
-  plugins: [require("daisyui")],
+  daisyui: {
+    themes: [
+      {
+        kaiju: {
+          primary: "#75fbbc",
+          secondary: "#00e000",
+          accent: "#75fbbc",
+          neutral: "#00201e",
+          "base-100": "#f67bb6",
+          info: "#67e8f9",
+          success: "#4ade80",
+          warning: "#ffa022",
+          error: "#ef4444",
+        },
+      },
+    ],
+  },
+  plugins: [daisyui],
 };

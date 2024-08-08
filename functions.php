@@ -9,13 +9,9 @@
 
 if ( ! defined( '_S_VERSION' ) ) {
 	// Replace the version number of the theme on each release.
-	define( '_S_VERSION', '1.0.0' );
+	define( '_S_VERSION', '1.1.12' );
 }
 
-function theme_enqueue_styles() {
-    wp_enqueue_style('tailwindcss', get_template_directory_uri() . '/style.css');
-}
-add_action('wp_enqueue_scripts', 'theme_enqueue_styles');
 /**
  * Sets up theme defaults and registers support for various WordPress features.
  *
@@ -31,6 +27,16 @@ function join_the_club_setup() {
 		* to change 'join-the-club' to the name of your theme in all the template files.
 		*/
 	load_theme_textdomain( 'join-the-club', get_template_directory() . '/languages' );
+
+ 	function theme_enqueue_styles() {
+    wp_enqueue_style(
+        'join-the-club',
+        get_template_directory_uri() . '/style.css',
+        array(),
+        filemtime(get_template_directory() . '/style.css')
+    );
+  }
+  add_action('wp_enqueue_scripts', 'theme_enqueue_styles');
 
 	// Add default posts and comments RSS feed links to head.
 	add_theme_support( 'automatic-feed-links' );
@@ -142,7 +148,6 @@ add_action( 'widgets_init', 'join_the_club_widgets_init' );
  * Enqueue scripts and styles.
  */
 function join_the_club_scripts() {
-	wp_enqueue_style( 'join-the-club-style', get_stylesheet_uri(), array(), _S_VERSION );
 	wp_style_add_data( 'join-the-club-style', 'rtl', 'replace' );
 
 	wp_enqueue_script( 'join-the-club-navigation', get_template_directory_uri() . '/js/navigation.js', array(), _S_VERSION, true );
