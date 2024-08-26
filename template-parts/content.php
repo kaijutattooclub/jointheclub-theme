@@ -30,8 +30,7 @@
         </p>
         <div class="py-5 text-sm font-regular text-gray-900 flex">
             <span class="mr-3 flex flex-row items-center text-white">
-                Tags:<span class="ml-1 text-primary"><?php echo "#", the_category(", #");?></span></span>
-            <a href="#" class="flex flex-row items-center">
+                <span class="ml-1 text-primary"><?php echo "#", strip_tags(get_the_category_list(", #"));?></span></span>
                 <svg class="text-primary" fill="currentColor" height="16px" aria-hidden="true" role="img"
                     focusable="false" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                     <path fill="currentColor"
@@ -39,6 +38,6 @@
                     </path>
                     <path d="M0 0h24v24H0z" fill="none"></path>
                 </svg>
-                <span class="ml-1 text-white"><?php the_author(); ?></span></a>
+                <span class="ml-1 text-white"><?php esc_html(the_author()); ?></span>
         </div>
         <hr class=" mb-6">

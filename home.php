@@ -1,23 +1,25 @@
-<?php get_header(); ?>
-
-<main id="primary" class="site-main container mx-auto">
-    <div class="max-w-screen-lg mx-auto sm:p-10 md:p-16">
+<?php
+    get_header();
+    $headline = esc_html(get_field('headline', 'option'));
+    $desc = get_field('page-desc', 'option');
+?>
+<main id="primary" class="site-main">
+    <div class="container my-4 rounded-xl overflow-hidden flex flex-col mx-auto p-4">
+        <header class="entry-header mt-[4rem] py-[2rem]">
+            <h1 class="entry-title text-4xl"><?php echo $headline ;?></h1>
+            <span class="screen-reader-text"><?php echo $headline.'<br>'.$desc;?></span>
+            <p class="py-6 text-lg"><?php echo $desc;?></p>
+            <hr class="py-4 my-4">
+        </header>
   		<?php
     		if ( have_posts() ) :
    			if ( is_home() && ! is_front_page() ) :
-    				?>
-   					<h1 class="page-title screen-reader-text"><?php the_field('headline'); ?></h1>
-    				<?php
-              echo "<p>".get_field('page-desc')."</p>";
-   			endif;
+		?>
+		<?php
+        endif;
    			/* Start the Loop */
    			while ( have_posts() ) :
     				the_post();
-    				/*
-   				 * Include the Post-Type-specific template for the content.
-   				 * If you want to override this in a child theme, then include a file
-   				 * called content-___.php (where ___ is the Post Type name) and that will be used instead.
-   				 */
     				get_template_part( 'template-parts/content', get_post_type() );
    			endwhile;
    			the_posts_navigation();

@@ -8,33 +8,33 @@
  */
 
 get_header();
+/* if page is 'gaestetattovoerer-i-kaiju-tattoo-club' */
+if (is_page('gaestetattovoerer-i-kaiju-tattoo-club')) {
+    echo "test";
+    get_template_part('template-parts/guests.php');
+}
 ?>
-
+<style>p{margin-bottom: 1.2rem;} main ul{margin-bottom:1.1rem;} main ul li{padding-left:1.2rem; list-style: inside; } h2{margin-bottom:1.2rem;} </style>
 	<main id="primary" class="site-main">
+	<div id="post-<?php the_ID();?>" class="container my-4 rounded overflow-hidden flex flex-col mx-auto">
 
-		<?php
-		while ( have_posts() ) :
-			the_post();
+        <div class="relative">
+            <a href="<?php the_permalink();?>">
+                <img class="w-full aspect-[21/9] object-cover rounded-xl"
+                    src="<?php echo get_the_post_thumbnail_url(); ?>"
+                    alt="<?php the_title_attribute(); ?>" class="w-full">
+            </a>
 
-			get_template_part( 'template-parts/content', get_post_type() );
-
-			the_post_navigation(
-				array(
-					'prev_text' => '<span class="nav-subtitle">' . esc_html__( 'Previous:', 'join-the-club' ) . '</span> <span class="nav-title">%title</span>',
-					'next_text' => '<span class="nav-subtitle">' . esc_html__( 'Next:', 'join-the-club' ) . '</span> <span class="nav-title">%title</span>',
-				)
-			);
-
-			// If comments are open or we have at least one comment, load up the comment template.
-			if ( comments_open() || get_comments_number() ) :
-				comments_template();
-			endif;
-
-		endwhile; // End of the loop.
-		?>
+        </div>
+        <h1 class="text-4xl py-4"><?php the_title();?></h1>
+        <div class="pb-5 text-sm font-regular text-gray-900 flex">
+            <span class="mr-3 flex flex-row items-center text-white">
+                Kategori:<span class="ml-1 text-primary"><?php echo "#", strip_tags(get_the_category_list(", #"));?></span></span>
+        </div>
+        <hr class="my-2">
+        <?php the_content(); ?>
 
 	</main><!-- #main -->
 
 <?php
-get_sidebar();
 get_footer();

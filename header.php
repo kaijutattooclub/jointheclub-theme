@@ -17,20 +17,21 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="profile" href="https://gmpg.org/xfn/11">
 	<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Victor+Mono:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Victor+Mono:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
 	<?php wp_head(); ?>
+    <meta name="theme-color" content="#f67bb6" >
 </head>
 
 <body <?php body_class(); ?>>
 <?php wp_body_open(); ?>
-<div class="gridbg fixed top-0 left-0 w-screen h-screen bg-cover bg-center bg-repeat-y z-[-2] opacity-[30%] bg-base-100">
+<div class="gridbg opacity-[10%] fixed top-0 left-0 w-screen h-screen bg-cover bg-center bg-repeat-y z-[-2] bg-base-100">
 </div>
 <div class="dustbg fixed top-0 left-0 w-screen h-screen bg-cover bg-center bg-repeat-y z-[-1]">
 </div>
 <div id="page" class="site container mx-auto mt-2">
 <header id="site-navigation" class="navbar flex-1 md:flex-col lg:flex-row justify-between ">
-    <div>
+    <div class="mb-0 md:mb-4 lg:mb-0">
         <?php the_custom_logo(); ?>
     </div>
     <?php
@@ -38,12 +39,12 @@
             'menu'            => 'Primary Menu',
             'menu_class'      => 'menu-horizontal text-xl',
             'container'       => 'nav',
-            'container_class' => 'flex-none hidden lg:flex',
+            'container_class' => 'flex-none hidden md:flex',
         ));
     ?>
-    <nav class="menu text-xl inline-block justify-end lg:hidden">
+    <nav class="menu text-xl inline-block justify-end md:hidden">
         <button data-collapse-toggle="mobile-menu-2" type="button"
-            class="z-999 inline-flex items-center p-2 ml-1 text-sm text-gray-500 rounded-lg xl:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+            class="z-80 inline-flex items-center p-2 ml-1 text-sm text-primary bg-base-100 rounded-lg xl:hidden hover:bg-base-200 focus:outline-none focus:ring-2 focus:ring-primary"
             aria-controls="mobile-menu-2" aria-expanded="true">
             <span class="sr-only">Open main menu</span>
             <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
@@ -58,12 +59,11 @@
             </svg>
         </button>
 
-        <div class="items-center justify-between w-full flex-col min-h-screen bg-base-200 absolute z-100 top-0 left-0 pt-1/5 hidden" id="mobile-menu-2">
+        <div class="items-center justify-between w-3/4 bg-base-200 shadow-xl flex-col min-h-screen absolute z-40 top-0 left-0 pt-[3rem] pl-[3rem] border-r-4 border-primary ease-in-out hidden transition-all duration-1000" id="mobile-menu-2">
             <?php
-                the_custom_logo();
                 wp_nav_menu(array(
                     'menu'            => 'mobile',
-                    'menu_class'      => 'flex-col mt-4 font-medium',
+                    'menu_class'      => 'flex-col justify-center mt-[4rem] touch-none text-2xl z-40',
                 ));
             ?>
             <script type="text/javascript">
