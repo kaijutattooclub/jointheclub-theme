@@ -31,6 +31,10 @@ h6 {
   font-weight: 700;
 }
 
+.has-large-font-size {
+  @apply py-4;
+}
+
 @font-face {
   font-family: "Lazenby Computer";
   src:
@@ -44,8 +48,8 @@ h6 {
 }
 
 body {
-  @apply text-white;
-  @apply victormono;
+  @apply text-white victormono;
+  font-size: 1rem;
 }
 
 footer a.link {
@@ -56,7 +60,8 @@ footer a.link:hover {
   color: var(--primary-800);
 }
 
-button {
+button,
+input[type="submit"] {
   @apply text-black victormono font-bold py-2 px-6 mx-2 rounded-xl;
   border: 1px solid var(--stroke);
   box-shadow: -3px 4px 0 0 var(--stroke);
@@ -68,7 +73,7 @@ button {
   font-family: "Lazenby Computer", sans-serif;
 }
 
-.menu-item > a {
+nav .menu-item > a {
   @apply text-2xl computerfont px-4 py-2 text-kaiju-primary;
   letter-spacing: 0.07rem;
   -webkit-text-stroke-width: 1px;
@@ -76,12 +81,11 @@ button {
   text-shadow: -2.3px 1.7px 0 var(--stroke);
 }
 
-.menu-item > a::before {
+nav .menu-item > a::before {
   content: attr(data-text);
   position: absolute;
   top: 0;
   left: 0;
-  color: var(--stroke);
   z-index: -1;
   text-shadow:
     1px 0 0 var(--stroke),
@@ -89,8 +93,17 @@ button {
     -1px 0 0 var(--stroke),
     0 -1px 0 var(--stroke);
 }
-.menu-item::hover {
+nav .menu-item::hover {
+  @apply text-[--primary-600];
+}
+
+nav .menu-item > a:active,
+nav .menu-item > a:focus {
   text-decoration: underline;
+  @apply text-[--primary-600];
+}
+
+.menu-item > a {
 }
 
 .hero-secondary {
@@ -116,7 +129,6 @@ button.primary:hover {
 }
 
 .gridbg {
-  @apply fixed top-0 left-0 w-screen h-screen bg-cover bg-center bg-repeat-y z-[-2] opacity-[2%] bg-base-100;
   background-image: url("./src/grid.svg");
 }
 .dustbg {
@@ -128,8 +140,65 @@ button.primary:hover {
 }
 
 .container {
+  @apply mx-auto;
   max-width: 1160px;
 }
-footer nav {
-  @apply sm:py-4;
+footer nav,
+footer footer {
+}
+
+.fullfull {
+  @apply bg-base-200;
+  margin-left: calc(-50vw + 50%); /* Adjust the left margin */
+  margin-right: calc(-50vw + 50%); /* Adjust the right margin */
+  width: 100vw; /* Full viewport width */
+  box-sizing: border-box; /* Include padding in width calculation */
+}
+
+.wpcf7-text,
+.wpcf7-textarea,
+.wpcf7-date,
+.wpcf7-select {
+  @apply w-full p-2 rounded-lg;
+  color: var(--stroke);
+}
+form p label {
+  @apply text-xs font-bold uppercase;
+}
+.wpcf7-submit {
+  @apply bg-primary text-white;
+}
+.wpcf7-submit:hover {
+  @apply bg-[--primary-600] cursor-pointer;
+}
+iframe {
+  @apply w-full rounded-lg;
+}
+form p {
+  @apply mb-6;
+}
+
+div.wp-block-image,
+.wp-block-image > figure {
+  @apply w-full;
+  max-width: 90% !important;
+  height: auto;
+  margin: 0 auto;
+}
+
+.has-medium-font-size {
+  padding: 2rem 0;
+}
+.desktop-footer .menu-item {
+  @apply text-kaiju-primary link-hover hover:text-white py-1;
+}
+footer {
+  @apply p-6 md:p-4;
+}
+.wpcf7 {
+  @apply w-full;
+}
+
+figcaption {
+  @apply text-center text-xs bg-base-200 p-2;
 }
