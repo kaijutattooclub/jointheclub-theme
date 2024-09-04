@@ -153,7 +153,31 @@ if ($show_cta) {
   </div>
   </div>
 </footer>
-
+<div id="cbanner" class="fixed bottom-0 p-6 w-full flex justify-right z-[2000]">
+    <div class="bg-primary text-[--stroke] bg-opacity-95 text-xs rounded-md fade w-[450px] show">
+        <div class="p-4 flex items-center justify-between px-6 rounded border border-[--stroke]">
+            <p>
+                Ved at bruge <strong>KaijuTattooClub.dk</strong> accepterer du vores
+                <a class="link link-hover font-bold" href="#" target="_blank">Cookie Politik</a>.
+            </p>
+            <button id="cookie-accept" type="button" class="px-5 py-3 rounded-lg text-[--stroke] hover:bg-green-800 ml-1.5 min-w-max">Accepter</button>
+        </div>
+    </div>
+</div>
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+      // Check if the user has already accepted cookies
+      if (localStorage.getItem('cookieAccepted') === 'true') {
+          document.getElementById('cbanner').style.display = 'none';
+      } else {
+          document.getElementById('cookie-accept').addEventListener('click', function () {
+              console.log('cookie-accept clicked');
+              document.getElementById('cbanner').style.display = 'none';
+              localStorage.setItem('cookieAccepted', 'true'); // Store the consent
+          });
+      }
+  });
+</script>
 <?php wp_footer(); ?>
 
 </body>

@@ -27,6 +27,7 @@
         </div>
         <p class="py-5 text-base leading-8">
             <?php the_excerpt(); ?>
+        <p><br><a href="<?php the_permalink();?>" class="text-primary link link-hover font-bold ">Læs indlæg</a></p>
         </p>
         <div class="py-5 text-sm font-regular text-gray-900 flex">
             <span class="mr-3 flex flex-row items-center text-white">
