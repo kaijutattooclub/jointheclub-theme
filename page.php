@@ -38,16 +38,19 @@ get_header();
     		?>
 
 		<?php
-		if (is_page('gaestetattovoerer-i-kaiju-tattoo-club')) {
-            get_template_part('template-parts/guests', 'post');
-        }
-		if (is_page('om-kaiju-tattoo-club')) {
-            get_template_part( 'template-parts/team' );
-        }
-        if (is_page('kontakt')) {
-            get_template_part( 'template-parts/contact' );
-        }
-        ?>
+      if (is_page('gaestetattovoerer-i-kaiju-tattoo-club')) {
+        get_template_part('template-parts/guests', 'post');
+      }
+      if (is_page('om-kaiju-tattoo-club')) {
+        get_template_part( 'template-parts/team' );
+      }
+      if (is_page('kontakt')) {
+        get_template_part( 'template-parts/contact' );
+      }
+      if (is_page('besked-sendt')) {
+        get_template_part( 'template-parts/thank-you' );
+      }
+    ?>
 	</main><!-- #main -->
 
 <?php

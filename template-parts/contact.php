@@ -5,7 +5,6 @@
     $phone = get_field('phone', 'option');
     $hours = get_field('hours', 'option');
 
-    get_header();
    ?>
 
     <div class="entry-content">

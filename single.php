@@ -1,5 +1,6 @@
 <?php
 /**
+
  * The template for displaying all single posts
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/#single-post
@@ -10,7 +11,6 @@
 get_header();
 /* if page is 'gaestetattovoerer-i-kaiju-tattoo-club' */
 if (is_page('gaestetattovoerer-i-kaiju-tattoo-club')) {
-    echo "test";
     get_template_part('template-parts/guests.php');
 }
 ?>
