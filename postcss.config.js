@@ -8,7 +8,7 @@ module.exports = {
       Author: raske.xyz
       Author URI: https://raske.xyz
       Description: Pretty fly, for a doom guy
-      Version: 1.1.17
+      Version: 1.1.18
       `,
     }),
     require("tailwindcss"),
