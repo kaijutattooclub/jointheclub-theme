@@ -4,7 +4,7 @@
       Author: raske.xyz
       Author URI: https://raske.xyz
       Description: Pretty fly, for a doom guy
-      Version: 1.1.17
+      Version: 1.1.18
        */
 /* ! tailwindcss v3.4.7 | MIT License | https://tailwindcss.com */
 /*
@@ -1810,9 +1810,6 @@ html {
 .min-h-screen {
   min-height: 100vh;
 }
-.w-1\/2 {
-  width: 50%;
-}
 .w-1\/3 {
   width: 33.333333%;
 }
@@ -1827,6 +1824,9 @@ html {
 }
 .w-6 {
   width: 1.5rem;
+}
+.w-\[1\/3\] {
+  width: 1/3;
 }
 .w-\[20rem\] {
   width: 20rem;
@@ -1851,6 +1851,9 @@ html {
 }
 .w-screen {
   width: 100vw;
+}
+.min-w-0 {
+  min-width: 0px;
 }
 .min-w-max {
   min-width: -moz-max-content;
@@ -2013,6 +2016,10 @@ html {
   padding-left: 1.5rem;
   padding-right: 1.5rem;
 }
+.px-\[3rem\] {
+  padding-left: 3rem;
+  padding-right: 3rem;
+}
 .py-0\.5 {
   padding-top: 0.125rem;
   padding-bottom: 0.125rem;
@@ -2057,9 +2064,6 @@ html {
 }
 .pl-0 {
   padding-left: 0px;
-}
-.pl-\[3rem\] {
-  padding-left: 3rem;
 }
 .pr-0 {
   padding-right: 0px;
@@ -2253,9 +2257,7 @@ h6 {
 
 @font-face {
   font-family: "Lazenby Computer";
-  src:
-    local("Lazenby Computer Smooth"),
-    local("LazenbyComputer-Smooth"),
+  src: local("Lazenby Computer Smooth"), local("LazenbyComputer-Smooth"),
     url("./src/LazenbyComputer-Smooth.woff2") format("woff2"),
     url("./src/LazenbyComputer-Smooth.woff") format("woff");
   font-weight: normal;
@@ -2317,17 +2319,30 @@ nav .menu-item > a {
   text-shadow: -2.3px 1.7px 0 var(--stroke);
 }
 
+#jap-menu {
+  padding-left: 1rem;
+  padding-right: 1rem;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  font-size: 2.25rem;
+  line-height: 2.5rem;
+  --tw-text-opacity: 1;
+  color: rgb(117 251 188 / var(--tw-text-opacity));
+  font-family: "Lazenby Computer", sans-serif;
+  letter-spacing: 0.07rem;
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: var(--stroke);
+  text-shadow: -2.3px 1.7px 0 var(--stroke);
+}
+
 nav .menu-item > a::before {
   content: attr(data-text);
   position: absolute;
   top: 0;
   left: 0;
   z-index: -1;
-  text-shadow:
-    1px 0 0 var(--stroke),
-    0 1px 0 var(--stroke),
-    -1px 0 0 var(--stroke),
-    0 -1px 0 var(--stroke);
+  text-shadow: 1px 0 0 var(--stroke), 0 1px 0 var(--stroke),
+    -1px 0 0 var(--stroke), 0 -1px 0 var(--stroke);
 }
 nav .menu-item::hover {
   color: var(--primary-600);
@@ -2745,43 +2760,61 @@ figcaption {
   line-height: 1rem;
 }
 #cbanner {
-  display:none;
+  display: none;
 }
+
+#mobile-menu-2 {
+  background-image: url("./src/menuzilla.png");
+  background-attachment: fixed;
+  background-position: bottom left;
+  background-repeat: no-repeat;
+  background-size: 90%;
+}
+
 .hover\:bg-\[--primary-600\]:hover {
   background-color: var(--primary-600);
 }
+
 .hover\:bg-base-200:hover {
   --tw-bg-opacity: 1;
   background-color: var(--fallback-b2,oklch(var(--b2)/var(--tw-bg-opacity)));
 }
+
 .hover\:bg-primary:hover {
   --tw-bg-opacity: 1;
   background-color: var(--fallback-p,oklch(var(--p)/var(--tw-bg-opacity)));
 }
+
 .hover\:text-\[--primary-600\]:hover {
   color: var(--primary-600);
 }
+
 .hover\:text-primary:hover {
   --tw-text-opacity: 1;
   color: var(--fallback-p,oklch(var(--p)/var(--tw-text-opacity)));
 }
+
 .hover\:text-white:hover {
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity));
 }
+
 .focus\:outline-none:focus {
   outline: 2px solid transparent;
   outline-offset: 2px;
 }
+
 .focus\:ring-2:focus {
   --tw-ring-offset-shadow: var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);
   --tw-ring-shadow: var(--tw-ring-inset) 0 0 0 calc(2px + var(--tw-ring-offset-width)) var(--tw-ring-color);
   box-shadow: var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow, 0 0 #0000);
 }
+
 .focus\:ring-primary:focus {
   --tw-ring-opacity: 1;
   --tw-ring-color: var(--fallback-p,oklch(var(--p)/var(--tw-ring-opacity)));
 }
+
 @media (min-width: 640px) {
   .sm\:flex {
     display: flex;
@@ -2794,6 +2827,7 @@ figcaption {
     line-height: 2.5rem;
   }
 }
+
 @media (min-width: 768px) {
   .md\:mb-4 {
     margin-bottom: 1rem;
@@ -2853,12 +2887,22 @@ figcaption {
     line-height: 1.5rem;
   }
 }
+
 @media (min-width: 1024px) {
   .lg\:mb-0 {
     margin-bottom: 0px;
   }
+  .lg\:w-1\/2 {
+    width: 50%;
+  }
+  .lg\:w-1\/3 {
+    width: 33.333333%;
+  }
   .lg\:w-\[20rem\] {
     width: 20rem;
+  }
+  .lg\:w-full {
+    width: 100%;
   }
   .lg\:flex-row {
     flex-direction: row;
@@ -2867,11 +2911,13 @@ figcaption {
     flex-direction: row-reverse;
   }
 }
+
 @media (min-width: 1280px) {
   .xl\:hidden {
     display: none;
   }
 }
+
 @media (prefers-color-scheme: dark) {
   .dark\:text-gray-300 {
     --tw-text-opacity: 1;

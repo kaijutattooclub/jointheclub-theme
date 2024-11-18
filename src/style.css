@@ -37,9 +37,7 @@ h6 {
 
 @font-face {
   font-family: "Lazenby Computer";
-  src:
-    local("Lazenby Computer Smooth"),
-    local("LazenbyComputer-Smooth"),
+  src: local("Lazenby Computer Smooth"), local("LazenbyComputer-Smooth"),
     url("./src/LazenbyComputer-Smooth.woff2") format("woff2"),
     url("./src/LazenbyComputer-Smooth.woff") format("woff");
   font-weight: normal;
@@ -81,17 +79,22 @@ nav .menu-item > a {
   text-shadow: -2.3px 1.7px 0 var(--stroke);
 }
 
+#jap-menu {
+  @apply text-4xl computerfont px-4 py-2 text-kaiju-primary computerfont;
+  letter-spacing: 0.07rem;
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: var(--stroke);
+  text-shadow: -2.3px 1.7px 0 var(--stroke);
+}
+
 nav .menu-item > a::before {
   content: attr(data-text);
   position: absolute;
   top: 0;
   left: 0;
   z-index: -1;
-  text-shadow:
-    1px 0 0 var(--stroke),
-    0 1px 0 var(--stroke),
-    -1px 0 0 var(--stroke),
-    0 -1px 0 var(--stroke);
+  text-shadow: 1px 0 0 var(--stroke), 0 1px 0 var(--stroke),
+    -1px 0 0 var(--stroke), 0 -1px 0 var(--stroke);
 }
 nav .menu-item::hover {
   @apply text-[--primary-600];
@@ -203,5 +206,13 @@ figcaption {
   @apply text-center text-xs bg-base-200 p-2;
 }
 #cbanner {
-  display:none;
+  display: none;
+}
+
+#mobile-menu-2 {
+  background-image: url("./src/menuzilla.png");
+  background-attachment: fixed;
+  background-position: bottom left;
+  background-repeat: no-repeat;
+  background-size: 90%;
 }
