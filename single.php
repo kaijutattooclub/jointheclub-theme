@@ -16,7 +16,7 @@ if (is_page('gaestetattovoerer-i-kaiju-tattoo-club')) {
 ?>
 <style>p{margin-bottom: 1.2rem;} main ul{margin-bottom:1.1rem;} main ul li{padding-left:1.2rem; list-style: inside; } h2{margin-bottom:1.2rem;} </style>
 	<main id="primary" class="site-main">
-	<div id="post-<?php the_ID();?>" class="container my-4 rounded overflow-hidden flex flex-col mx-auto">
+	<div id="post-<?php the_ID();?>" class="container my-4 rounded overflow-hidden flex flex-col mx-auto p-4">
 
         <div class="relative">
             <a href="<?php the_permalink();?>">
