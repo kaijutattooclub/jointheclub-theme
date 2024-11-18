@@ -10,7 +10,7 @@
       <div class="container mx-auto p-10">
           <div class="flex sm:w-full md:w-full">
               <div class="flex-col mx-auto text-center">
-              <lottie-player class="text-center mx-auto" src="<?php echo $lottie_path ?>" speed="0.5" style="width: 300px; height: 300px" loop autoplay direction="1" mode="normal"></lottie-player>
+              <lottie-player class="text-center mx-auto" src="<?php echo $lottie_path ?>" speed="0.5" style="width: 250px; height: 250px" loop autoplay direction="1" mode="normal"></lottie-player>
               <h2 class="text-2xl"><?php echo $thanks_header; ?></h1>
               <?php echo $thanks_text; ?>
               </div>
