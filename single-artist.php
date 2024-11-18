@@ -39,9 +39,9 @@ get_header();
             <?php the_excerpt(); ?>
             <hr class="my-4 w-[90%] mx-auto">
             <div class="flex flex-col md:flex-row">
-                <div class="flex flex-col w-full md:w-1/3">
+                <div class="flex flex-col w-full lg:w-1/3">
                     <?php if ($term_ids): ?>
-                    <div id="tags" class="flex flex-col w-1/2 md:w-full bg-base-200 rounded-xl max-h-[fit-content] self-start my-4 p-4">
+                    <div id="tags" class="flex flex-col min-w-0 w-full bg-base-200 rounded-xl max-h-[fit-content] self-start my-4 p-4">
                         <h2 class="text-lg">Stilart</h2>
                         <p class="my-2 text-sm mb-4"><?php echo $fname; ?> elsker at lave - men er ikke begrænset til følgende stilarter</p>
                         <div class="flex flex-row flex-wrap">
@@ -63,7 +63,7 @@ get_header();
                     <?php endif;
 
                     if ($instagram_username): ?>
-                    <div id="tags" class="flex flex-col w-1/2 md:w-full bg-base-200 rounded-xl max-h-[fit-content] self-start my-4 p-4">
+                    <div id="tags" class="flex flex-col w-full bg-base-200 rounded-xl max-h-[fit-content] self-start my-4 p-4">
                         <h2 class="text-lg">Følg på Instagram</h2>
                         <div class="flex flex-row flex-wrap">
                             <span class="bg-primary hover:bg-[--primary-600] font-bold text-[--stroke] text-xs lowercase font-bold m-1 px-2.5 py-0.5 rounded border border-1 border-[--stroke]"><a href="<?php echo $instagram_url; ?>" class="my-2 link link-hover">@<?php echo $instagram_username; ?></a></span>
@@ -72,7 +72,7 @@ get_header();
                     <?php endif;
 
                    if ($aliases): ?>
-                    <div id="tags" class="hidden md:flex flex-col w-1/2 md:w-full bg-base-200 rounded-xl max-h-[fit-content] self-start my-2 p-4">
+                    <div id="tags" class="hidden md:flex flex-col w-1/3 lg:w-full bg-base-200 rounded-xl max-h-[fit-content] self-start my-2 p-4">
                         <h2 class="text-lg">Også kendt som</h2>
                         <p class="my-2 text-sm mb-4">Du kender måske også <?php echo $fname; ?> som:
                             <ul>
@@ -108,8 +108,8 @@ get_header();
             <?php
                 if ($contact_form): ?>
             <div id="artist-contact" class="flex flex-row w-full p-4">
-                <aside class="flex flex-row w-full md:w-1/2">
-                    <div id="contact" class="flex flex-col w-full my-4 p-4">
+                <aside class="flex flex-row w-full lg:w-1/2">
+                    <div id="contact" class="flex flex-col w-full my-4 p-4 min-w-0">
                         <h2 class="text-lg">Kontakt</h2>
                         <p class="my-2 text-sm mb-4">Hvis du skal i kontakt med <?php echo $fname; ?>, kan du nemt benytte kontaktformlaren herunder. For booking af tid, anbefaler vi at bruge formularen på <a href="/booking" class="link link-hover primary">Book Tid</a>-siden.</p>
                         <div class="flex flex-row flex-wrap">
@@ -119,8 +119,8 @@ get_header();
                 </aside>
                 <?php
                     if ($contact_photo): ?>
-                        <div id="contact-image" class="w-full md:w-1/2 p-4 flex items-center">
-                            <img src="<?php echo $contact_photo; ?>" class="rounded-full w-3/4 h-auto mx-auto">
+                        <div id="contact-image" class="w-full lg:w-1/2 md:visibility-hidden p-4 flex items-center">
+                            <img src="<?php echo $contact_photo; ?>" class="rounded-full w-3/4 min-w-0 h-auto mx-auto">
                         </div>
                 <?php endif; ?>
             </div>
