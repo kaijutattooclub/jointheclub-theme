@@ -63,7 +63,8 @@
             </svg>
         </button>
 
-        <div class="items-center justify-between w-3/4 bg-base-200 shadow-xl flex-col min-h-screen absolute z-40 top-0 left-0 pt-[3rem] pl-[3rem] border-r-4 border-primary ease-in-out hidden transition-all duration-1000" id="mobile-menu-2">
+        <div class="items-center justify-between w-3/4 bg-base-200 shadow-xl flex-col min-h-screen absolute z-40 top-0 left-0 pt-[3rem] px-[3rem] border-r-4 border-primary ease-in-out hidden transition-all duration-1000" id="mobile-menu-2"> 
+            <div class="computer-font text-4xl font-bold text-primary text-center w-full" id="jap-menu">メニュー</div>
             <?php
                 wp_nav_menu(array(
                     'menu'            => 'mobile',
