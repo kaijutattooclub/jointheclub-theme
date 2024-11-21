@@ -26,11 +26,37 @@ jobs:
       uses: actions/setup-node@v2
       with:
         node-version: '18.x'
-
+    
     - name: Install dependencies
       run: npm install
+  
+    - name: Get latest tag
+      id: get_latest_tag
+      uses: actions-ecosystem/action-get-latest-tag@v1
 
-    - name: Build project
+    - name: Bump version
+      id: bump_version
+      run: |
+        latest_tag=${{ steps.get_latest_tag.outputs.tag }}
+        if [[ $latest_tag =~ ^v([0-9]+)\.([0-9]+)\.([0-9]+)$ ]]; then
+          IFS='.' read -ra parts <<< "$latest_tag"
+          major=${parts[1]}
+          minor=${parts[2]}
+          patch=${parts[3]}
+          echo "major: $major, minor: $minor, patch: $patch"
+          echo "v$major.$minor.$((patch + 1))"
+          new_version="$major.$minor.$((patch + 1))"
+        else
+          echo "Could not parse tag"
+          exit 1
+        fi
+        echo "new_version=$new_version" >> $GITHUB_ENV
+
+    - name: Set new version
+    # Change the version number in postcss.config.js
+      run: sed -i "s/${{ steps.get_latest_tag.outputs.tag }}/${{ env.new_version }}/g" postcss.config.js
+
+    - name: Build CSS
       run: npm run build:css
 
     - name: Package theme
@@ -42,8 +68,8 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
-        tag_name: v1.1.19
-        release_name: Release v1.1.19
+        tag_name: ${{ env.new_version }}
+        release_name: v${{ env.new_version }}
         draft: false
         prerelease: false
 
@@ -53,6 +79,6 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
         upload_url: ${{ steps.create_release.outputs.upload_url }}
-        asset_path: ./build.zip
-        asset_name: build.zip
+        asset_path: ./join-the-club.zip
+        asset_name: join-the-club-${{ steps.bump_version.outputs.new_version }}.zip
         asset_content_type: application/zip
