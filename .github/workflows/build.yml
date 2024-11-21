@@ -29,8 +29,8 @@ jobs:
     - name: Build project
       run: npm run build:css
 
-    - name: Zip files
-      run: zip -r build.zip . -x node_modules/\*
+    - name: Package theme
+      run: npm run bundle
 
     - name: Create Release
       id: create_release
@@ -38,8 +38,8 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
-        tag_name: v1.1.18
-        release_name: Release v1.1.18
+        tag_name: v1.1.19
+        release_name: Release v1.1.19
         draft: false
         prerelease: false
 

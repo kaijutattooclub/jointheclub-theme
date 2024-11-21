@@ -50,7 +50,7 @@
     "build:css": "npx postcss src/style.css -o style.css",
     "watch:css": "npx postcss src/style.css -o style.css --watch",
     "lint:js": "wp-scripts lint-js 'js/*.js'",
-    "bundle": "dir-archiver --src . --dest ../_s.zip --exclude .DS_Store .stylelintrc.json .eslintrc .git .gitattributes .github .gitignore README.md composer.json composer.lock node_modules vendor package-lock.json package.json .travis.yml phpcs.xml.dist sass style.css.map yarn.lock"
+    "bundle": "dir-archiver --src . --dest ./join-the-club.zip --exclude bun.lockb .DS_Store .stylelintrc.json tailwindcss.config.js postcss.config.js .eslintrc .git .gitattributes .github .gitignore README.md readme.txt LICENSE composer.json composer.lock node_modules vendor package-lock.json package.json .travis.yml phpcs.xml.dist sass style.css.map yarn.lock shell.nix"
   },
   "dependencies": {
     "postcss-prepend": "^0.1.2"
