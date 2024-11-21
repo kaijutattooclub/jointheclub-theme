@@ -54,7 +54,7 @@ jobs:
 
     - name: Set new version
     # Change the version number in postcss.config.js
-      run: sed -i "s/${{ steps.get_latest_tag.outputs.tag }}/${{ env.new_version }}/g" postcss.config.js
+      run: sed -i "s/1.1.18/${{ env.new_version }}/g" postcss.config.js
 
     - name: Build CSS
       run: npm run build:css
