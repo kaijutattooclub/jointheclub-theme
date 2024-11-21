@@ -38,7 +38,7 @@ jobs:
       id: bump_version
       run: |
         latest_tag=${{ steps.get_latest_tag.outputs.tag }}
-        if [[ $latest_tag =~ ^v([0-9]+)\.([0-9]+)\.([0-9]+)$ ]]; then
+        if [[ $latest_tag =~ ^([0-9]+)\.([0-9]+)\.([0-9]+)$ ]]; then
           IFS='.' read -ra parts <<< "$latest_tag"
           major=${parts[0]}
           minor=${parts[1]}
