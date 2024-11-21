@@ -8,13 +8,13 @@
     "WordPress",
     "Theme"
   ],
-  "homepage": "https://github.com/Automattic/_s#readme",
+  "homepage": "https://kaijutattooclub.dk",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Automattic/_s.git"
+    "url": "git+https://github.com/mikkelrask/kaijutattooclub-wordpress.git"
   },
   "bugs": {
-    "url": "https://github.com/Automattic/_s/issues"
+    "url": "https://github.com/mikkelrask/kaijutattooclub-wordpress/issues"
   },
   "devDependencies": {
     "autoprefixer": "^10.4.20",
