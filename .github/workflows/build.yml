@@ -40,9 +40,9 @@ jobs:
         latest_tag=${{ steps.get_latest_tag.outputs.tag }}
         if [[ $latest_tag =~ ^v([0-9]+)\.([0-9]+)\.([0-9]+)$ ]]; then
           IFS='.' read -ra parts <<< "$latest_tag"
-          major=${parts[1]}
-          minor=${parts[2]}
-          patch=${parts[3]}
+          major=${parts[0]}
+          minor=${parts[1]}
+          patch=${parts[2]}
           echo "major: $major, minor: $minor, patch: $patch"
           echo "v$major.$minor.$((patch + 1))"
           new_version="$major.$minor.$((patch + 1))"
@@ -80,5 +80,5 @@ jobs:
       with:
         upload_url: ${{ steps.create_release.outputs.upload_url }}
         asset_path: ./join-the-club.zip
-        asset_name: join-the-club-${{ steps.bump_version.outputs.new_version }}.zip
+        asset_name: join-the-club-${{ env.new_version }}.zip
         asset_content_type: application/zip
