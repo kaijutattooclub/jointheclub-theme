@@ -1,8 +1,8 @@
 # Github automation to build the project and zip the files
 
-name: Build Join-The-Club Theme
+name: Create Release Candidate
 on:
-  push:
+  pull_request:
     branches:
       - production
 
@@ -45,14 +45,16 @@ jobs:
           echo "v$major.$minor.$((patch + 1))"
           new_version="$major.$minor.$((patch + 1))"
         else
-          echo "Could not parse tag"
-          exit 1
+          echo "Could not parse previous tag, creating non-serialezed RC version"
+          new_version="x.x.x"
         fi
-        echo "new_version=$new_version" >> $GITHUB_ENV
+        sha=$(git rev-parse --short HEAD)
+        rc="$new_version-rc-$sha"
+        echo "new_version=$rc" >> $GITHUB_ENV
 
     - name: Set new version
     # Change the version number in postcss.config.js
-      run: sed -i "s/1.1.18/${{ env.new_version }}/g" postcss.config.js
+      run: sed -i "s/1.1.18/${{ env.new_version }}/g" postcss.config.js; sed -i "s/Theme Name\:\ Join The Club/Theme Name\:\ Join The Club Test ${{ env.new_version }}/g" postcss.config.js
 
     - name: Build CSS
       run: npm run build:css
@@ -60,7 +62,7 @@ jobs:
     - name: Package theme
       run: npm run bundle
 
-    - name: Create Release
+    - name: Create Release Candidate/Test build
       id: create_release
       uses: actions/create-release@v1
       env:
@@ -69,7 +71,7 @@ jobs:
         tag_name: ${{ env.new_version }}
         release_name: v${{ env.new_version }}
         draft: false
-        prerelease: false
+        prerelease: true
 
     - name: Upload Release Asset
       uses: actions/upload-release-asset@v1
@@ -78,5 +80,5 @@ jobs:
       with:
         upload_url: ${{ steps.create_release.outputs.upload_url }}
         asset_path: ./join-the-club.zip
-        asset_name: join-the-club.zip
+        asset_name: join-the-club-${{ env.new_version }}.zip
         asset_content_type: application/zip
