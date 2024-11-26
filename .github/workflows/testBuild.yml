@@ -48,7 +48,8 @@ jobs:
           echo "Could not parse previous tag, creating non-serialezed RC version"
           new_version="x.x.x"
         fi
-        rc="$new_version-rc"
+        sha=$(git rev-parse --short HEAD)
+        rc="$new_version-rc-$sha"
         echo "new_version=$rc" >> $GITHUB_ENV
 
     - name: Set new version
