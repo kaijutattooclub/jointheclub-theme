@@ -54,7 +54,7 @@ jobs:
 
     - name: Set new version
     # Change the version number in postcss.config.js
-      run: sed -i "s/1.1.18/${{ env.new_version }}/g" postcss.config.js
+      run: sed -i "s/1.1.18/${{ env.new_version }}/g" postcss.config.js; sed -i "s/Theme Name\:\ Join The Club/Theme Name\:\ Join The Club Test ${{ env.new_version }}/g" postcss.config.js
 
     - name: Build CSS
       run: npm run build:css
@@ -62,7 +62,7 @@ jobs:
     - name: Package theme
       run: npm run bundle
 
-    - name: Create Release
+    - name: Create Release Candidate/Test build
       id: create_release
       uses: actions/create-release@v1
       env:
@@ -79,6 +79,6 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
         upload_url: ${{ steps.create_release.outputs.upload_url }}
-        asset_path: ./join-the-club.zip
-        asset_name: join-the-club.zip
+        asset_path: ./join-the-club-${{ env.new_version }}.zip
+        asset_name: join-the-club-${{ env.new_version }}.zip
         asset_content_type: application/zip
