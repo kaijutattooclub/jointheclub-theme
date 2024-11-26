@@ -1,8 +1,8 @@
 # Github automation to build the project and zip the files
 
-name: Build Join-The-Club Theme
+name: Create Release Candidate
 on:
-  push:
+  pull_request:
     branches:
       - production
 
@@ -45,10 +45,11 @@ jobs:
           echo "v$major.$minor.$((patch + 1))"
           new_version="$major.$minor.$((patch + 1))"
         else
-          echo "Could not parse tag"
-          exit 1
+          echo "Could not parse previous tag, creating non-serialezed RC version"
+          new_version="x.x.x"
         fi
-        echo "new_version=$new_version" >> $GITHUB_ENV
+        rc="$new_version-rc"
+        echo "new_version=$rc" >> $GITHUB_ENV
 
     - name: Set new version
     # Change the version number in postcss.config.js
