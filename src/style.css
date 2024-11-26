@@ -138,7 +138,7 @@ button.primary:hover {
   background-image: url("./src/dust.svg");
 }
 .hero {
-  max-height: 66vh;
+  max-height: 100vh;
   min-height: 66vh;
 }
 
