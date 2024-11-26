@@ -70,7 +70,7 @@ jobs:
         tag_name: ${{ env.new_version }}
         release_name: v${{ env.new_version }}
         draft: false
-        prerelease: false
+        prerelease: true
 
     - name: Upload Release Asset
       uses: actions/upload-release-asset@v1
