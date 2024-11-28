@@ -45,7 +45,7 @@
     "lint:scss": "wp-scripts lint-style 'sass/**/*.scss'",
     "build:css": "npx postcss src/style.css -o style.css",
     "watch:css": "npx postcss src/style.css -o style.css --watch",
-    "bundle": "dir-archiver --src . --dest ./join-the-club.zip --exclude bun.lockb join-the-club.zip .DS_Store .eslintrc .eslintignore .stylelintrc.json phpcs.xml.dist .stylelintrc.json tailwindcss.config.js postcss.config.js .eslintrc .git .gitattributes .github .gitignore README.md readme.txt LICENSE composer.json composer.lock node_modules vendor package-lock.json package.json .travis.yml phpcs.xml.dist sass style.css.map yarn.lock shell.nix"
+    "bundle": "dir-archiver --src . --dest ./join-the-club.zip --exclude tailwind.config.js bun.lockb join-the-club.zip .DS_Store .eslintrc .eslintignore .stylelintrc.json phpcs.xml.dist .stylelintrc.json tailwindcss.config.js postcss.config.js .eslintrc .git .gitattributes .github .gitignore README.md readme.txt LICENSE composer.json composer.lock node_modules vendor package-lock.json package.json .travis.yml phpcs.xml.dist sass style.css.map yarn.lock shell.nix"
   },
   "dependencies": {
     "postcss-prepend": "^0.1.2"
