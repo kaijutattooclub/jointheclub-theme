@@ -16,7 +16,6 @@
     $guest_artists = array();
     $upcoming_guest_artists = array();
     if ($q->have_posts()) :
-        echo "<h1 class='text-xl'>Nuværende og kommende</h1>";
         while ($q->have_posts()) : $q->the_post();
             $artist_fname = get_field('artist_fname');
             $artist_lname = get_field('artist_lname');
@@ -34,13 +33,14 @@
             $now = strtotime(date('Y-m-d'));
             $today_unix = strtotime($now);
             if ($now >= $start_unix && $now <= $to_unix) {
+                echo "<h1 class='text-xl'>Nuværende og kommende</h1>";
             ?>
             <div class="w-full md:w-1/2 card rounded-xl m-4 mb-[4rem] p-4 bg-base-200">
                 <div class="flex mb-4"><img src="<?php echo $artist_image; ?>" alt="<?php echo $artist_name; ?>" class="w-24 rounded-full max-w-1/5 h-auto border border-4 border-primary -top-[2rem] aspect-1/1">
                 <div class="ml-4 mt-2 flex flex-col"><h2 class="text-2xl"><?php echo $artist_name; ?></h2>
                 <?php echo "<p><strong>".$start_date." - ".$to_date."</strong></p></div></div>";?>
 
-                <p>Se <?php echo $artist_fname; ?>s arbejde på <a href="<?php echo $instagram_url; ?>" target="_blank" class="link link-hover text-primary strong bold font-bold">Instagram</a>, hvor de også kan kontaktes ift. eventuelle ledige tider!</p>
+                <p>Se <?php echo $artist_fname; ?>'s arbejde på <a href="<?php echo $instagram_url; ?>" target="_blank" class="link link-hover text-primary strong bold font-bold">Instagram</a>, hvor de også kan kontaktes ift. eventuelle ledige tider!</p>
                     <div class="w-full">
                         <h3 class="text-lg mt-4">Galleri</h3>
                         <div class="flex flex-wrap">
@@ -52,7 +52,7 @@
                                     </div>
                                 <?php endforeach;
                             else :
-                                echo 'Ingen billeder fundet';
+                                echo 'Ingen billeder 🫥';
                             endif; ?>
                         </div>
                     </div>
