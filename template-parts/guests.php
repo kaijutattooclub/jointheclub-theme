@@ -44,8 +44,11 @@
                 <p>Se <?php echo $artist_fname; ?>'s arbejde på <a href="<?php echo $instagram_url; ?>" target="_blank" class="link link-hover text-primary strong bold font-bold">Instagram</a>, hvor de også kan kontaktes ift. eventuelle ledige tider!</p>
                 <p><?php 
                     /* For each style in existing variable $guest_style */
-                    foreach ($guest_style as $style) {
-                        echo "<span class='badge'>".$style."</span>";
+                    foreach ($guest_style as $style_id) {
+                        $style_term = get_term($style_id);
+                        if (!is_wp_error($style_term)) {
+                            echo "<span class='badge'>".$style_term->name."</span>";
+                        }
                     } ?>
                 </p>
                     <div class="w-full">
