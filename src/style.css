@@ -32,7 +32,7 @@ h6 {
 }
 
 .has-large-font-size {
-  @apply py-4;
+  @apply py-2;
 }
 
 @font-face {
@@ -181,16 +181,27 @@ form p {
   @apply mb-6;
 }
 
-div.wp-block-image,
+.aligncenter {
+  text-align: center;
+  margin: 0 auto;
+}
+
+div.wp-block-image, 
 .wp-block-image > figure {
-  @apply w-full;
   max-width: 90% !important;
   height: auto;
   margin: 0 auto;
 }
 
+.wp-block-image figure img {
+  @apply aligncenter;
+  max-width: 100%;
+  height: auto;
+  margin: 0 auto;
+}
+
 .has-medium-font-size {
-  padding: 2rem 0;
+  padding: 1rem 0;
 }
 .desktop-footer .menu-item {
   @apply text-kaiju-primary link-hover hover:text-white py-1;
@@ -202,9 +213,6 @@ footer {
   @apply w-full;
 }
 
-figcaption {
-  @apply text-center text-xs bg-base-200 p-2;
-}
 #cbanner {
   display: none;
 }
@@ -215,4 +223,13 @@ figcaption {
   background-position: bottom left;
   background-repeat: no-repeat;
   background-size: 90%;
+}
+
+.badge {
+  @apply bg-primary hover:bg-[--primary-600] font-bold text-[--stroke] text-xs lowercase m-1 px-2.5 py-0.5 rounded border border-[--stroke];
+}
+
+figcaption.wp-element-caption {
+  @apply text-center text-xs bg-base-200 p-2;
+  margin-top: -0.1rem;
 }

@@ -39,7 +39,7 @@ get_header();
 
 		<?php
       if (is_page('gaestetattovoerer-i-kaiju-tattoo-club')) {
-        get_template_part('template-parts/guests', 'post');
+        get_template_part('template-parts/guests');
       }
       if (is_page('om-kaiju-tattoo-club')) {
         get_template_part( 'template-parts/team' );

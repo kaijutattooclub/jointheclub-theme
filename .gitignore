@@ -1,3 +1,6 @@
 node_modules
 shell.nix
 bun.lockb
+*.zip
+*.tar.gz
+style.css

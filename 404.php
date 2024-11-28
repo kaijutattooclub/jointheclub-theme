@@ -6,55 +6,32 @@
  *
  * @package Join_The_Club
  */
-
+	$not_found_header = "Ups! Siden du leder efter eksisterer ikke!";
+	$not_found_text = "Lidt ligesom denne dino 😥<br />Du vil automatisk blive sendt til forsiden om ganske få sekunder - eller klik <a href='/'>her</a> for at komme tilbage til forsiden.";
+	$template_directory = get_template_directory_uri();
+	$lottie_path = $template_directory . '/src/404-dino.json';
 get_header();
 ?>
 
-	<main id="primary" class="site-main">
-
-		<section class="error-404 not-found">
-			<header class="page-header">
-				<h1 class="page-title"><?php esc_html_e( 'Oops! That page can&rsquo;t be found.', 'join-the-club' ); ?></h1>
-			</header><!-- .page-header -->
-
-			<div class="page-content">
-				<p><?php esc_html_e( 'It looks like nothing was found at this location. Maybe try one of the links below or a search?', 'join-the-club' ); ?></p>
-
-					<?php
-					get_search_form();
-
-					the_widget( 'WP_Widget_Recent_Posts' );
-					?>
-
-					<div class="widget widget_categories">
-						<h2 class="widget-title"><?php esc_html_e( 'Most Used Categories', 'join-the-club' ); ?></h2>
-						<ul>
-							<?php
-							wp_list_categories(
-								array(
-									'orderby'    => 'count',
-									'order'      => 'DESC',
-									'show_count' => 1,
-									'title_li'   => '',
-									'number'     => 10,
-								)
-							);
-							?>
-						</ul>
-					</div><!-- .widget -->
-
-					<?php
-					/* translators: %1$s: smiley */
-					$join_the_club_archive_content = '<p>' . sprintf( esc_html__( 'Try looking in the monthly archives. %1$s', 'join-the-club' ), convert_smilies( ':)' ) ) . '</p>';
-					the_widget( 'WP_Widget_Archives', 'dropdown=1', "after_title=</h2>$join_the_club_archive_content" );
-
-					the_widget( 'WP_Widget_Tag_Cloud' );
-					?>
-
-			</div><!-- .page-content -->
-		</section><!-- .error-404 -->
-
-	</main><!-- #main -->
+	<main id="primary" class="site-main my-8">
+		<section id="intro" class="w-full">
+			<div class="container mx-auto p-10">
+				<div class="flex sm:w-full md:w-full">
+					<div class="flex-col mx-auto text-center">
+					<lottie-player class="text-center mx-auto" src="<?php echo $lottie_path ?>" speed="1" style="width: 617px; height: 450px" loop autoplay direction="1" mode="normal"></lottie-player>
+					<h2 class="text-2xl"><?php echo $not_found_header; ?></h2>
+					<p class="p-4"><?php echo $not_found_text; ?></p>
+					</div>
+				</div>
+			<style>.entry-header {display: none;}</style>
+			</div>
+		</section>
+		<script>
+			setTimeout(function() {
+				window.location.href = '/';
+			}, 10000);
+		</script>
+	</main>
 
 <?php
 get_footer();
