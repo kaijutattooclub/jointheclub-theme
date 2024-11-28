@@ -25,6 +25,7 @@
             $artist_email = get_field('artist-email');
             $artist_image = get_field('artist-image');
             $guest_gallery = get_field('guest_gallery');
+            $guest_style = get_field('artist_style');
             $start_date = get_field('start_date');
             $formatted_start_date = DateTime::createFromFormat('d/m/Y', $start_date)->format('Y-m-d');
             $start_unix = strtotime($formatted_start_date);
@@ -36,11 +37,17 @@
                 echo "<h1 class='text-xl'>Nuværende og kommende</h1>";
             ?>
             <div class="w-full md:w-1/2 card rounded-xl m-4 mb-[4rem] p-4 bg-base-200">
-                <div class="flex mb-4"><img src="<?php echo $artist_image; ?>" alt="<?php echo $artist_name; ?>" class="w-24 rounded-full max-w-1/5 h-auto border border-4 border-primary -top-[2rem] aspect-1/1">
+                <div class="flex mb-4"><img src="<?php echo $artist_image; ?>" title="<?php echo $artist_name ?>" alt="<?php echo $artist_name; ?>" class="w-24 rounded-full max-w-1/5 h-auto border border-4 border-primary -top-[2rem] aspect-1/1">
                 <div class="ml-4 mt-2 flex flex-col"><h2 class="text-2xl"><?php echo $artist_name; ?></h2>
                 <?php echo "<p><strong>".$start_date." - ".$to_date."</strong></p></div></div>";?>
 
                 <p>Se <?php echo $artist_fname; ?>'s arbejde på <a href="<?php echo $instagram_url; ?>" target="_blank" class="link link-hover text-primary strong bold font-bold">Instagram</a>, hvor de også kan kontaktes ift. eventuelle ledige tider!</p>
+                <p><?php 
+                    /* For each style in existing variable $guest_style */
+                    foreach ($guest_style as $style) {
+                        echo "<span class='badge'>".$style."</span>";
+                    } ?>
+                </p>
                     <div class="w-full">
                         <h3 class="text-lg mt-4">Galleri</h3>
                         <div class="flex flex-wrap">

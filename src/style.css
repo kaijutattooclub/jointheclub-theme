@@ -216,3 +216,7 @@ figcaption {
   background-repeat: no-repeat;
   background-size: 90%;
 }
+
+.badge {
+  @apply bg-primary hover:bg-[--primary-600] font-bold text-[--stroke] text-xs lowercase font-bold m-1 px-2.5 py-0.5 rounded border border-[--stroke];
+}
