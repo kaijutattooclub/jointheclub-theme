@@ -184,3 +184,17 @@ require get_template_directory() . '/inc/customizer.php';
 if ( defined( 'JETPACK__VERSION' ) ) {
 	require get_template_directory() . '/inc/jetpack.php';
 }
+
+/** 
+ * If user lands on a guest artist's page, redirect to the team page
+ */
+function redirect_guest_artists() {
+    if (is_singular('artist')) {
+        $is_guest = get_field('guest_artist');
+        if ($is_guest) {
+            wp_redirect('/om-kaiju-tattoo-club/#holdet');
+            exit;
+        }
+    }
+}
+add_action('template_redirect', 'redirect_guest_artists');
