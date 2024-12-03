@@ -188,7 +188,7 @@ form p {
 
 div.wp-block-image, 
 .wp-block-image > figure {
-  max-width: 90% !important;
+  max-width: 95% !important;
   height: auto;
   margin: 0 auto;
 }
@@ -231,5 +231,5 @@ footer {
 
 figcaption.wp-element-caption {
   @apply text-center text-xs bg-base-200 p-2;
-  margin-top: -0.1rem;
+  margin-top: -0.2rem;
 }

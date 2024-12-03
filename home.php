@@ -5,7 +5,7 @@
 ?>
 <main id="primary" class="site-main">
     <div class="container my-4 rounded-xl overflow-hidden flex flex-col mx-auto p-4">
-        <header class="entry-header mt-[4rem] py-[2rem]">
+        <header class="entry-header mt-[4rem]">
             <h1 class="entry-title text-4xl"><?php echo $headline ;?></h1>
             <span class="screen-reader-text"><?php echo $headline.'<br>'.$desc;?></span>
             <p class="py-6 text-lg"><?php echo $desc;?></p>

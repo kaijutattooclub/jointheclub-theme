@@ -24,8 +24,8 @@ if (is_page('gaestetattovoerer-i-kaiju-tattoo-club')) {
       </a>
     </div>
 	<div id="post-<?php the_ID();?>" class="container rounded-xl mx-4 overflow-hidden flex flex-col p-4">
-        <h1 class="text-2xl py-4"><?php the_title();?></h1>
-        <div class="text-sm font-regular text-gray-900 flex flex-col md:flex-row">
+        <h1 class="text-2xl"><?php the_title();?></h1>
+        <div class="text-sm font-regular text-[--stroke] mt-2 flex flex-col md:flex-row">
             <p class="bg-base-200 md:p-2 rounded-xl mb-1 mr-3 flex flex-row items-center text-white">
               <svg width="24px" height="24px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
