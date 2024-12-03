@@ -1,27 +1,27 @@
     <!-- Author card -->
     <div
-      class="bg-base-200 relative max-w-3/4 mx-auto my-8 md:my-16 flex flex-col items-start space-y-4 sm:flex-row sm:space-y-0 sm:space-x-6 px-4 py-8 border-2 border-dashed border-primary shadow-lg rounded-lg">
+      class="bg-base-200 relative max-w-[80%] mx-auto mb-8 md:my-8 flex flex-col items-start space-y-4 sm:flex-row sm:space-y-0 sm:space-x-6 px-4 py-8 border-2 border-dashed border-primary shadow-lg rounded-xl">
 
       <span class="absolute text-xs font-medium text-[--stroke] top-0 left-0 rounded-br-lg rounded-tl-lg px-2 py-1 bg-primary border-gray-400 border-b-2 border-r-2 border-dashed ">
         <?php 
           global $post;
           $author_id = $post->post_author;
-          print 'kaiju#'.$author_id;
+          print 'om kaiju#'.$author_id;
         ?>
       </span>
 
-      <div class="flex justify-center md:justify-start max-w-1/4">
+      <div class="flex justify-center max-w-1/4 mx-auto">
         <?php
           $avatar = get_avatar_url($author_id, array('size' => 250));
         ?>
-        <img class="object-cover w-20 h-20 mt-3 mr-3 rounded-full mx-auto" src="<?php print $avatar; ?>">
+        <img class="object-cover w-36 h-36 mt-3 mr-3 rounded-full" src="<?php print $avatar; ?>">
       </div>
 
       <div class="w-full sm:w-auto flex flex-col items-center sm:items-start">
           <p class="font-display mb-2 text-2xl font-bold" itemprop="author">
             <?php 
               echo esc_html(get_the_author_meta('display_name', $author_id));
-              echo "<span class='text-italic'> (kaiju_#".$author_id.'.bin)</span>'; 
+              echo "<span class='text-italic'> (kaiju_#".$author_id.'.doc)</span>'; 
             ?>
           </p>
 
