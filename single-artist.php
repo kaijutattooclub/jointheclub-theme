@@ -31,7 +31,7 @@ get_header();
         </div>
         <img src="<?php echo $profile_picture; ?>" alt="<?php echo $profile_picture; ?>" class="max-w-[12rem] h-auto rounded-full border-4 border-primary -mt-[5.5rem] mx-auto z-10">
         <h1
-            class="text-4xl md:text-2xl inline-block text-center transition duration-500 ease-in-out inline-block my-2">
+            class="text-4xl md:text-2xl inline-block text-center transition duration-500 ease-in-out my-2">
                 <?php echo $full_name;?>
         </h1>
 
@@ -53,7 +53,7 @@ get_header();
                                         $term = get_term($term_id);
                                         // Tjek om term-objektet er gyldigt
                                         if ($term && !is_wp_error($term)): ?>
-                                            <span class="bg-primary hover:bg-[--primary-600] font-bold text-[--stroke] text-xs lowercase font-bold m-1 px-2.5 py-0.5 rounded border border-1 border-[--stroke]"><?php echo esc_html($term->name); ?></span>
+                                            <span class="bg-primary hover:bg-[--primary-600] text-[--stroke] text-xs lowercase font-bold m-1 px-2.5 py-0.5 rounded border border-1 border-[--stroke]"><?php echo esc_html($term->name); ?></span>
                                         <?php endif;
                                     endforeach;
                                 endif;
@@ -66,7 +66,7 @@ get_header();
                     <div id="tags" class="flex flex-col w-full bg-base-200 rounded-xl max-h-[fit-content] self-start my-4 p-4">
                         <h2 class="text-lg">Følg på Instagram</h2>
                         <div class="flex flex-row flex-wrap">
-                            <span class="bg-primary hover:bg-[--primary-600] font-bold text-[--stroke] text-xs lowercase font-bold m-1 px-2.5 py-0.5 rounded border border-1 border-[--stroke]"><a href="<?php echo $instagram_url; ?>" class="my-2 link link-hover">@<?php echo $instagram_username; ?></a></span>
+                            <span class="bg-primary hover:bg-[--primary-600] text-[--stroke] text-xs lowercase font-bold m-1 px-2.5 py-0.5 rounded border border-1 border-[--stroke]"><a href="<?php echo $instagram_url; ?>" class="my-2 link link-hover">@<?php echo $instagram_username; ?></a></span>
                         </div>
                     </div>
                     <?php endif;
