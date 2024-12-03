@@ -207,6 +207,13 @@ div.wp-block-image,
   margin: 0 auto;
 }
 
+.wp-block-image figure img {
+  @apply aligncenter;
+  max-width: 100%;
+  height: auto;
+  margin: 0 auto;
+}
+
 .has-medium-font-size {
   padding: 1rem 0;
 }
