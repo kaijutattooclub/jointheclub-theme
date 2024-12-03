@@ -8,7 +8,7 @@
  */
 
 ?>
-    <div id="post-<?php the_ID();?>" class="mx-4 rounded overflow-hidden flex flex-col mx-auto">
+    <div id="post-<?php the_ID();?>" class="mx-4 rounded overflow-hidden flex flex-col">
 
         <div class="relative">
             <a href="<?php the_permalink();?>">

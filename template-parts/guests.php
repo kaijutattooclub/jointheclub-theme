@@ -42,7 +42,7 @@ if ($q->have_posts()) :
         if ($now >= $start_unix && $now <= $to_unix) {
         ?>
         <div class="w-full md:w-1/2 card rounded-xl m-4 mb-[4rem] p-4 bg-base-200">
-            <div class="flex mb-4"><img src="<?php echo $artist_image; ?>" title="<?php echo $artist_name ?>" alt="<?php echo $artist_name; ?>" class="w-24 rounded-full max-w-1/5 h-auto border border-4 border-primary -top-[2rem] aspect-1/1">
+            <div class="flex mb-4"><img src="<?php echo $artist_image; ?>" title="<?php echo $artist_name ?>" alt="<?php echo $artist_name; ?>" class="w-24 rounded-full max-w-1/5 h-auto border-4 border-primary -top-[2rem] aspect-1/1">
             <div class="ml-4 mt-2 flex flex-col"><h2 class="text-2xl"><?php echo $artist_name; ?></h2>
             <?php echo "<p><strong>".$start_date." - ".$to_date."</strong></p></div></div>";?>
 
